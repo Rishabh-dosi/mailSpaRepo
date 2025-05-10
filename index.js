@@ -26,9 +26,11 @@ function createTransporter(user, pass) {
         })
     );
 }
-
+app.use("/api", function (req, res) {
+    res.send("HELLO WORLD");
+})
 // Endpoint to test email
-async function  fn() {
+async function fn() {
     const transporter = createTransporter(fromAddress, emailPassword);
 
     const mailOptions = {
