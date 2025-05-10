@@ -26,6 +26,8 @@ function createTransporter(user, pass) {
         })
     );
 }
+const emailRoutes = require("./routes/mailServiceRoute");
+app.use("/api/email", emailRoutes);
 app.use("/api", function (req, res) {
     res.send("HELLO WORLD");
 })
@@ -47,8 +49,7 @@ async function fn() {
         console.error("❌ Failed to send email:", error);
     }
 };
-const emailRoutes = require("./routes/mailServiceRoute");
-app.use("/api/email", emailRoutes);
+
 app.listen(port, () => {
     console.log(`🚀 Email test app listening at http://localhost:${port}`);
 });
